@@ -17,6 +17,8 @@ services:
       retries: 5
     networks:
       - app-network
+    volumes:
+      - cassandra_data_volume:/var/lib/cassandra
 
   zookeeper:
     image: zookeeper:3.8
@@ -102,3 +104,5 @@ volumes:
       type: none
       o: bind
       device: /Users/santhoshpsps/Downloads/testFolder
+  cassandra_data_volume:
+    driver: local
